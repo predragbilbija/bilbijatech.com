@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilbija Technology Limited (BTL) | WordPress Maintenance, Troubleshooting &amp; AI Automation</title>
+<meta name="description" content="BTL keeps WordPress and GoHighLevel websites stable, secure and up to date: maintenance, troubleshooting, technical SEO and AI-assisted automation for agencies and businesses.">
+<link rel="canonical" href="https://bilbijatech.com/">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bilbija Technology Limited (BTL)">
+<meta property="og:description" content="WordPress maintenance, troubleshooting &amp; AI-assisted automation for agencies and businesses.">
+<meta property="og:url" content="https://bilbijatech.com/">
+<meta property="og:image" content="https://bilbijatech.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b1f24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/btl-mark.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bilbija Technology Limited",
+  "alternateName": "BTL",
+  "url": "https://bilbijatech.com/",
+  "logo": "https://bilbijatech.com/assets/apple-touch-icon.png",
+  "foundingDate": "2023",
+  "email": "predrag@bilbijatech.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Irig", "addressRegion": "Vojvodina", "addressCountry": "RS"},
+  "founder": {"@type": "Person", "name": "Predrag Bilbija", "jobTitle": "Founder", "url": "https://www.linkedin.com/in/predrag-bilbija/"},
+  "sameAs": ["https://www.linkedin.com/company/bilbijatech/", "https://www.tiktok.com/@bull_t_line"]
+}
+</script>
+<style>
+:root{
+  --steel:#e2e5ed; --steel-hi:#eef0f5; --rule:#c4c9d4; --hole:#cdd2dc;
+  --graphite:#1b1f24; --ink-2:#3b424b; --muted:#525a64;
+  --laser:#4a6a90; --laser-deep:#33506f; --accent-soft:#9db3cc; --slate:#d3d9e3;
+  --anod:#111315; --anod-2:#1d2124; --anod-rule:#30363a; --anod-text:#c9ced2;
+  --wide:"wdth" 125; --narrow:"wdth" 75;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-color:var(--graphite) var(--steel);accent-color:var(--laser)}
+body{background:var(--steel);color:var(--graphite);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.6;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased;caret-color:var(--laser)}
+::selection{background:var(--accent-soft);color:var(--graphite)}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--laser-deep);outline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wide{font-variation-settings:var(--wide)}
+.narrow{font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.06em}
+h1,h2,h3{font-variation-settings:var(--wide);font-weight:800;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+p{text-wrap:pretty}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--steel) 92%,transparent);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:64px}
+.brand span{font-weight:800;font-size:15px;font-variation-settings:var(--wide);line-height:1.05}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.08em}
+.top nav{display:flex;align-items:center;gap:28px}
+.top nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink-2)}
+.top nav a:hover{color:var(--graphite);text-decoration:underline}
+.cta{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;background:var(--graphite);color:#fff;text-decoration:none;font-weight:700;font-size:15px;font-variation-settings:"wdth" 110;border-radius:3px;transition:background .2s var(--ease),transform .2s var(--ease)}
+.cta:hover{background:var(--laser-deep);color:#fff;transform:translateY(-1px)}
+.cta svg{width:16px;height:16px}
+.top .cta{padding:10px 16px;font-size:14px;white-space:nowrap}
+.top nav a.cta,.top nav a.cta:hover{text-decoration:none}
+.top nav a.cta,.top nav a.cta:hover{color:#fff}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-variation-settings:"wdth" 110;text-decoration:none;border-bottom:2px solid var(--graphite);padding:4px 0}
+.link-arrow:hover{color:var(--laser-deep);border-color:var(--laser)}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,6.6vw,88px);margin-bottom:26px}
+.hero h1 em{font-style:normal;color:var(--laser-deep)}
+.hero .lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink-2);max-width:36ch;margin-bottom:34px}
+.actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.plate{position:relative;aspect-ratio:5/4}
+.plate svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.plate .mark{position:absolute;left:12%;right:12%;top:50%;transform:translateY(-52%)}
+.cutline{stroke:var(--laser);stroke-width:1.5;fill:none;stroke-dasharray:1;stroke-dashoffset:0}
+.js .cutline{animation:cut 2.4s var(--ease) .2s both}
+@keyframes cut{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.plate-tag{position:absolute;right:6%;bottom:7%;font-size:11px;color:var(--muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em}
+
+/* title block */
+.titleblock{margin-top:64px;display:grid;grid-template-columns:2fr repeat(4,1fr);border:1px solid var(--graphite);background:var(--steel-hi)}
+.titleblock>div{padding:14px 18px;border-left:1px solid var(--graphite)}
+.titleblock>div:first-child{border-left:0}
+.titleblock .k{display:block;font-size:11px;color:var(--muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.titleblock .v{font-weight:700;font-size:18px;font-variation-settings:"wdth" 112;line-height:1.2}
+.titleblock .v.big{font-size:20px}
+
+/* ---------- services (job sheet) ---------- */
+.section{padding:120px 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
+.head h2{font-size:clamp(36px,4.6vw,60px)}
+.head p{color:var(--ink-2);max-width:44ch}
+.jobs{border-top:2px solid var(--graphite)}
+.job{position:relative;display:grid;grid-template-columns:1.15fr 1.25fr .9fr;gap:40px;padding:34px 0;border-bottom:1px solid var(--rule)}
+.job::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--laser);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.job:hover::after{transform:scaleX(1)}
+.job h3{font-size:clamp(24px,2.4vw,32px)}
+.job h3 .soon{display:inline-block;vertical-align:.35em;margin-left:10px;font-size:11px;font-weight:700;padding:4px 7px;background:var(--graphite);color:var(--steel);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;border-radius:2px}
+.job p{color:var(--ink-2);max-width:46ch}
+.job ul{list-style:none;font-size:14px;color:var(--muted);font-variation-settings:"wdth" 88}
+.job li{padding:3px 0 3px 18px;position:relative}
+.job li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:2px;background:var(--graphite)}
+
+/* ---------- checklist ---------- */
+.perf{height:22px;background-image:radial-gradient(circle at 50% 50%,var(--hole) 0 3.2px,transparent 3.6px);background-size:18px 18px;background-position:center;opacity:.9}
+.checks-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+.checks-grid h2{font-size:clamp(36px,4.6vw,60px);position:sticky;top:110px}
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--rule)}
+.checks li:last-child{border-bottom:1px solid var(--rule)}
+.box{width:32px;height:32px;border:2px solid var(--graphite);display:grid;place-items:center;margin-top:4px}
+.box svg{width:22px;height:22px;stroke:var(--laser-deep);stroke-width:3;fill:none;stroke-linecap:square}
+.checks h3{font-size:24px;margin-bottom:8px}
+.checks p{color:var(--ink-2);max-width:52ch}
+
+/* ---------- founder ---------- */
+.founder{background:var(--anod);color:var(--anod-text);padding:120px 0}
+.founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.portrait{position:relative;border:1px solid var(--anod-rule);padding:12px;background:var(--anod-2)}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.15) contrast(1.04)}
+.portrait figcaption{display:flex;justify-content:space-between;padding:12px 2px 0;font-size:11px;color:#9aa2a8;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em}
+.founder h2{font-size:clamp(36px,4.6vw,60px);color:#f2f4f5;margin-bottom:28px}
+.founder h2 em{font-style:normal;color:var(--accent-soft)}
+.founder p{margin-bottom:18px;max-width:58ch}
+.founder .li{color:#f2f4f5;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;list-style:none}
+.tags li{font-size:12px;padding:7px 11px;border:1px solid var(--anod-rule);color:#d7dcdf;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.08em;border-radius:2px}
+
+/* ---------- contact ---------- */
+.contact{background:var(--slate);color:var(--graphite);padding:110px 0 96px;border-top:1px solid var(--rule)}
+.contact h2{font-size:clamp(44px,6.4vw,92px);letter-spacing:-.03em;margin-bottom:30px;max-width:12ch}
+.contact h2 em{font-style:normal;color:var(--laser-deep)}
+.contact .row{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:end}
+.contact p{font-size:clamp(17px,1.5vw,20px);max-width:44ch;color:var(--ink-2)}
+.mail{display:inline-block;font-weight:800;font-variation-settings:"wdth" 110;font-size:clamp(20px,2.3vw,32px);text-decoration:none;border-bottom:3px solid var(--graphite);line-height:1.2;white-space:nowrap}
+.mail:hover{color:var(--laser-deep);border-color:var(--laser)}
+.contact .sub{margin-top:22px;display:flex;gap:26px;flex-wrap:wrap;font-weight:600}
+.contact .sub a{text-decoration:none;border-bottom:1px solid currentColor}
+
+footer{background:var(--graphite);color:#9aa2a8;font-size:14px;padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:#c9ced2}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-grid,.head,.checks-grid,.founder-grid,.contact h2 em{font-style:normal;color:var(--laser-deep)}
+.contact .row{grid-template-columns:1fr}
+  .hero-grid{gap:32px}
+  .plate{max-width:560px}
+  .job{grid-template-columns:1fr 1fr;gap:16px 32px}
+  .job h3{grid-column:1/-1}
+  .checks-grid h2{position:static}
+  .titleblock{grid-template-columns:repeat(2,1fr)}
+  .titleblock>div{border-left:0;border-top:1px solid var(--graphite)}
+  .titleblock>div:nth-child(even){border-left:1px solid var(--graphite)}
+  .titleblock>div:first-child{grid-column:1/-1;border-top:0}
+  .titleblock>div:nth-child(2),.titleblock>div:nth-child(3){border-top:1px solid var(--graphite)}
+  .titleblock>div:nth-child(2){border-left:0}
+  .titleblock>div:nth-child(3){border-left:1px solid var(--graphite)}
+  .titleblock>div:nth-child(4){border-left:0}
+  .top nav a:not(.cta){display:none}
+  .founder-grid{gap:40px}
+  .portrait{max-width:420px}
+}
+@media (max-width:600px){
+  .wrap{padding:0 18px}
+  .hero{padding-top:36px}
+  .section,.founder{padding:84px 0}
+  .job{grid-template-columns:1fr}
+  .brand small{display:none}
+  .brand img{width:52px}
+  .mail{font-size:clamp(17px,5.6vw,22px);font-variation-settings:"wdth" 92}
+  .titleblock .v{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .cutline{animation:none}
+  .job::after,.cta{transition:none}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Bilbija Technology Limited, home">
+      <img src="assets/btl-mark.webp" alt="" width="64" height="38">
+      <span>Bilbija Technology<small>Limited · Serbia</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#founder">Founder</a>
+      <a class="cta" href="#contact">Report a problem</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>Websites, kept in <em>working order.</em></h1>
+          <p class="lede">WordPress maintenance, troubleshooting and AI-assisted automation for digital agencies and businesses. The updates, fixes and careful routine work that keep your sites running.</p>
+          <div class="actions">
+            <a class="cta" href="#contact">Report a problem
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+            <a class="link-arrow" href="#services">See what I fix</a>
+          </div>
+        </div>
+
+        <div class="plate" aria-hidden="true">
+          <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <pattern id="holes" width="16" height="16" patternUnits="userSpaceOnUse">
+                <circle cx="8" cy="8" r="3.2" fill="#c3c8cc"/>
+              </pattern>
+              <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#eef0f1"/>
+                <stop offset=".55" stop-color="#e3e6e8"/>
+                <stop offset="1" stop-color="#d3d7da"/>
+              </linearGradient>
+            </defs>
+            <rect x="12" y="12" width="476" height="376" rx="10" fill="url(#sheen)" stroke="#a9b0b5"/>
+            <rect x="300" y="12" width="188" height="376" fill="url(#holes)" clip-path="inset(0 round 0 10px 10px 0)"/>
+            <g fill="#dcdfe1" stroke="#9aa2a8">
+              <circle cx="38" cy="38" r="9"/><circle cx="462" cy="38" r="9"/>
+              <circle cx="38" cy="362" r="9"/><circle cx="462" cy="362" r="9"/>
+            </g>
+            <g stroke="#9aa2a8" stroke-width="1.5">
+              <path d="M33 38h10M38 33v10M457 38h10M462 33v10M33 362h10M38 357v10M457 362h10M462 357v10"/>
+            </g>
+            <rect class="cutline" pathLength="1" x="2" y="2" width="496" height="396" rx="16"/>
+          </svg>
+          <img class="mark" src="assets/btl-mark.webp" alt="" width="875" height="515">
+          <span class="plate-tag">BTL · Irig RS · est. 2023</span>
+        </div>
+      </div>
+
+      <dl class="titleblock">
+        <div><dt class="k">Bilbija Technology Limited</dt><dd class="v big">WordPress &amp; web operations</dd></div>
+        <div><dt class="k">Client sites supported</dt><dd class="v">70+</dd></div>
+        <div><dt class="k">WordPress since</dt><dd class="v">2022</dd></div>
+        <div><dt class="k">Founded</dt><dd class="v">2023</dd></div>
+        <div><dt class="k">Works</dt><dd class="v">Remote, worldwide</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="head">
+        <h2>What I fix, maintain and automate</h2>
+        <p>Practical work for websites that need to stay fast, secure and up to date, especially when there are many of them.</p>
+      </div>
+      <div class="jobs">
+        <article class="job">
+          <h3>WordPress maintenance</h3>
+          <p>Core, plugin and theme updates with backups first and checks after, so nothing breaks quietly.</p>
+          <ul><li>Updates &amp; post-update checks</li><li>Backups &amp; staging</li><li>Security &amp; monitoring</li></ul>
+        </article>
+        <article class="job">
+          <h3>Troubleshooting &amp; bug fixing</h3>
+          <p>PHP errors, plugin conflicts, page-builder problems, broken forms and lost emails, fixed at the cause.</p>
+          <ul><li>PHP &amp; plugin conflicts</li><li>Forms, SMTP, email delivery</li><li>Tracking scripts &amp; integrations</li></ul>
+        </article>
+        <article class="job">
+          <h3>WordPress &amp; GoHighLevel sites</h3>
+          <p>Builds, changes and ongoing support on the builders and platforms agencies actually use.</p>
+          <ul><li>Elementor, Divi, Oxygen, WPBakery</li><li>GoHighLevel websites</li><li>Hosting moves &amp; setup</li></ul>
+        </article>
+        <article class="job">
+          <h3>Technical &amp; on-page SEO</h3>
+          <p>The implementation side of SEO, including bulk updates across hundreds of pages at once.</p>
+          <ul><li>Redirects &amp; URLs</li><li>Schema &amp; metadata</li><li>Internal linking</li></ul>
+        </article>
+        <article class="job">
+          <h3>AI-assisted automation</h3>
+          <p>Repetitive multi-site work turned into scripts, small tools and clear procedures.</p>
+          <ul><li>Bulk changes across many sites</li><li>Audits &amp; reports</li><li>Documented, repeatable runs</li></ul>
+        </article>
+        <article class="job">
+          <h3>AI images &amp; video<span class="soon">Soon</span></h3>
+          <p>Promotional images and short videos made with generative AI tools, for social media and ads.</p>
+          <ul><li>Product &amp; promo visuals</li><li>Short-form video</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="perf" aria-hidden="true"></div>
+
+  <section class="section" id="process">
+    <div class="wrap checks-grid">
+      <h2>Before any change touches a live site</h2>
+      <ul class="checks">
+        <li>
+          <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg></span>
+          <div><h3>Backup first</h3><p>Every job starts with a fresh backup and, where possible, a staging copy. If anything goes wrong, there is a clean way back.</p></div>
+        </li>
+        <li>
+          <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg></span>
+          <div><h3>Fix the cause</h3><p>I look for why it broke, not just how to hide it, then verify in a clean browser with caches cleared and logs checked.</p></div>
+        </li>
+        <li>
+          <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg></span>
+          <div><h3>Document &amp; automate</h3><p>You get a short, clear note of what was done. Anything that will happen again becomes a repeatable procedure.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="founder" id="founder">
+    <div class="wrap founder-grid">
+      <figure class="portrait">
+        <img src="assets/predrag-bilbija.webp" alt="Predrag Bilbija, founder of Bilbija Technology Limited" width="880" height="1100" loading="lazy">
+        <figcaption><span>Predrag Bilbija</span><span>Founder</span></figcaption>
+      </figure>
+      <div>
+        <h2>From punch presses <em>to WordPress.</em></h2>
+        <p>I'm a WordPress developer and technical operations specialist. Since 2022 I've worked hands-on with WordPress, and today I support a portfolio of 70+ client websites for a US digital agency: updates, debugging, hosting, tracking scripts, security and technical SEO.</p>
+        <p>Before the web, I was a system administrator, and then spent over two years programming and running CNC punching and laser cutting machines. Production taught me to work to tolerances, plan around deadlines and waste nothing. I founded BTL in 2023 to bring that same discipline straight to clients.</p>
+        <p><a class="li" href="https://www.linkedin.com/in/predrag-bilbija/" rel="noopener" target="_blank">Connect with me on LinkedIn</a></p>
+        <ul class="tags" aria-label="Tools and platforms">
+          <li>WordPress</li><li>PHP</li><li>Elementor</li><li>Divi</li><li>Oxygen</li><li>GoHighLevel</li><li>WP Engine</li><li>Kinsta</li><li>Cloudflare</li><li>GTM</li><li>GA4</li><li>Claude Code</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Something broken? <em>Let's fix it.</em></h2>
+      <div class="row">
+        <p>A form that stopped sending, an update that went wrong, or a set of sites that need regular care. Send a short description and the site address.</p>
+        <div>
+          <a class="mail" href="mailto:predrag@bilbijatech.com">predrag@bilbijatech.com</a>
+          <div class="sub">
+            <a href="https://www.linkedin.com/company/bilbijatech/" rel="noopener" target="_blank">BTL on LinkedIn</a>
+            <a href="https://www.linkedin.com/in/predrag-bilbija/" rel="noopener" target="_blank">Predrag on LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Bilbija Technology Limited · Irig, Serbia</span>
+    <span><a href="https://www.linkedin.com/company/bilbijatech/" rel="noopener" target="_blank">LinkedIn</a> · <a href="https://www.tiktok.com/@bull_t_line" rel="noopener" target="_blank">TikTok</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
