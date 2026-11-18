@@ -15,10 +15,9 @@
 <meta property="og:image" content="https://bilbijatech.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#111315">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/btl-mark.webp">
+<link rel="preload" as="image" href="assets/btl-mark.webp" imagesrcset="assets/btl-mark-480.webp 480w, assets/btl-mark.webp 875w" imagesizes="(max-width:980px) 72vw, 430px" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/plex-sans-var.woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,6 +33,10 @@
 }
 </script>
 <style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 900;font-stretch:62% 125%;font-display:swap;src:url(assets/fonts/archivo-var.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/plex-mono-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/plex-mono-500.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(assets/fonts/plex-sans-var.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 :root{
   --steel:#e2e5ed; --steel-hi:#eef0f5; --rule:#c4c9d4; --hole:#cdd2dc;
   --graphite:#1b1f24; --ink-2:#3b424b; --muted:#525a64;
@@ -213,7 +216,7 @@ p{text-wrap:pretty}
 .s-links i{display:block;width:5cqw;height:.8cqw;border-radius:1cqw;background:#cfd5cd}
 .s-btn{font-size:1.4cqw;font-weight:700;background:#2f5d4b;color:#fff;padding:1cqw 1.8cqw;border-radius:.7cqw}
 .s-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:4cqw;align-items:center;flex:1}
-.s-hero h4{font-size:4.8cqw;line-height:1.02;font-variation-settings:"wdth" 108;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6cqw}
+.s-hero .s-h{font-size:4.8cqw;line-height:1.02;font-variation-settings:"wdth" 108;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6cqw}
 .s-hero p{font-size:1.6cqw;line-height:1.5;color:#55625c;margin-bottom:2.4cqw}
 .s-ctas{display:flex;gap:1.2cqw}
 .s-ctas span{font-size:1.4cqw;font-weight:700;padding:1.1cqw 1.8cqw;border-radius:.7cqw;background:#2f5d4b;color:#fff}
@@ -365,7 +368,7 @@ footer a{color:var(--anod-text)}
   .s-logo{width:6cqw;height:6cqw;border-radius:1.4cqw}
   .s-name{font-size:4.2cqw}
   .s-btn{font-size:3.4cqw;padding:2cqw 3cqw;border-radius:1.4cqw}
-  .s-hero h4{font-size:9cqw;margin-bottom:3cqw}
+  .s-hero .s-h{font-size:9cqw;margin-bottom:3cqw}
   .s-hero p{font-size:3.8cqw;margin-bottom:4cqw}
   .s-ctas{gap:2.4cqw}
   .s-ctas span{font-size:3.4cqw;padding:2.4cqw 3.4cqw;border-radius:1.4cqw}
@@ -399,7 +402,7 @@ footer a{color:var(--anod-text)}
 <header class="top" id="hdr">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Bilbija Technology Limited, home">
-      <img src="assets/btl-mark-light.webp" alt="" width="60" height="35">
+      <img src="assets/btl-mark-light-128.webp" alt="" width="60" height="35">
       <span>Bilbija Technology<small>Limited · Serbia</small></span>
     </a>
     <nav aria-label="Main">
@@ -448,7 +451,7 @@ footer a{color:var(--anod-text)}
               </g>
               <rect class="cutline" pathLength="1" x="2" y="2" width="496" height="396" rx="16"/>
             </svg>
-            <img class="mark" src="assets/btl-mark.webp" alt="" width="875" height="515">
+            <img class="mark" src="assets/btl-mark.webp" srcset="assets/btl-mark-480.webp 480w, assets/btl-mark.webp 875w" sizes="(max-width:980px) 72vw, 430px" alt="" width="875" height="515" fetchpriority="high">
             <span class="plate-tag">BTL · Irig RS · est. 2023</span>
           </div>
         </div>
@@ -567,7 +570,7 @@ footer a{color:var(--anod-text)}
             <div class="s-nav"><span class="s-logo"></span><span class="s-name">Northside Plumbing</span><span class="s-links"><i></i><i></i><i></i></span><span class="s-btn">Book a visit</span></div>
             <div class="s-hero">
               <div>
-                <h4>Fast repairs, honest prices.</h4>
+                <p class="s-h">Fast repairs, honest prices.</p>
                 <p>Same-week appointments across the city. Tell us what's wrong and we'll call you back.</p>
                 <div class="s-ctas"><span>Book a visit</span><span>Call now</span></div>
               </div>
@@ -644,7 +647,7 @@ footer a{color:var(--anod-text)}
       <div class="contact-panel rv">
         <p>A form that stopped sending, an update that went wrong, or a set of sites that need regular care. Send a short description and the site address.</p>
         <div class="contact-actions">
-          <a class="cta cta-lg" id="mail-btn" href="https://www.linkedin.com/in/predrag-bilbija/" rel="noopener">Contact me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="cta cta-lg" id="mail-btn" href="https://www.linkedin.com/in/predrag-bilbija/" rel="noopener">Email me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <button class="ghost" type="button" id="copy-btn" hidden><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy email address</span></button>
         </div>
         <div class="sub">
@@ -670,7 +673,7 @@ footer a{color:var(--anod-text)}
   // header: smoked glass once the page has scrolled
   var hdr=document.getElementById('hdr');
   function onScroll(){hdr.classList.toggle('scrolled',window.scrollY>24)}
-  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  requestAnimationFrame(onScroll);addEventListener('scroll',onScroll,{passive:true});
 
   // plate tilt follows the pointer (fine pointers only)
   var hero=document.getElementById('hero'),plate=document.getElementById('plate');
