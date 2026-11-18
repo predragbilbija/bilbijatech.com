@@ -14,10 +14,10 @@
 <meta property="og:url" content="https://bilbijatech.com/">
 <meta property="og:image" content="https://bilbijatech.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1b1f24">
+<meta name="theme-color" content="#111315">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/btl-mark.webp">
 <script type="application/ld+json">
 {
@@ -38,296 +38,578 @@
   --steel:#e2e5ed; --steel-hi:#eef0f5; --rule:#c4c9d4; --hole:#cdd2dc;
   --graphite:#1b1f24; --ink-2:#3b424b; --muted:#525a64;
   --laser:#4a6a90; --laser-deep:#33506f; --accent-soft:#9db3cc; --slate:#d3d9e3;
-  --anod:#111315; --anod-2:#1d2124; --anod-rule:#30363a; --anod-text:#c9ced2;
-  --wide:"wdth" 125; --narrow:"wdth" 75;
+  --anod:#111315; --anod-2:#1a1e22; --anod-3:#22272c; --anod-rule:#30363a; --anod-text:#c9ced2; --anod-muted:#9aa2a8;
+  --ok:#5f8a6b; --fail:#a65a4a;
+  --wide:"wdth" 112; --narrow:"wdth" 75;
   --ease:cubic-bezier(.16,1,.3,1);
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --shadow:0 1px 2px rgba(17,19,21,.06),0 10px 30px -12px rgba(17,19,21,.22);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scrollbar-color:var(--graphite) var(--steel);accent-color:var(--laser)}
-body{background:var(--steel);color:var(--graphite);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.6;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased;caret-color:var(--laser)}
+html{scroll-behavior:smooth;scroll-padding-top:76px;scrollbar-color:var(--laser-deep) var(--anod);accent-color:var(--laser)}
+body{background:var(--steel);color:var(--graphite);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17.5px;line-height:1.65;-webkit-font-smoothing:antialiased;caret-color:var(--laser)}
 ::selection{background:var(--accent-soft);color:var(--graphite)}
 a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
-:focus-visible{outline:2px solid var(--laser-deep);outline-offset:3px}
+:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
 img{display:block;max-width:100%;height:auto}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-.wide{font-variation-settings:var(--wide)}
-.narrow{font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.06em}
+h1,h2,h3,h4,.brand,.cta,.ghost,.link-arrow,.titleblock,.strip li,.soon,.plate-tag,.portrait figcaption,.tags li,.sheet dt,.queue .st,.fleet-note,.founder .li{font-family:Archivo,system-ui,sans-serif}
 h1,h2,h3{font-variation-settings:var(--wide);font-weight:800;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
 p{text-wrap:pretty}
+.ico{width:16px;height:16px;flex:none}
 
-/* ---------- header ---------- */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--steel) 92%,transparent);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--rule)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+/* ---------- header: clear over the hero, smoked glass once scrolled ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:30;color:#eef0f5;border-bottom:1px solid transparent;transition:background .35s var(--ease),border-color .35s var(--ease),backdrop-filter .35s var(--ease)}
+.top.scrolled{background:rgba(17,19,21,.74);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);border-color:rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{width:64px}
+.brand img{width:60px}
 .brand span{font-weight:800;font-size:15px;font-variation-settings:var(--wide);line-height:1.05}
-.brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.08em}
-.top nav{display:flex;align-items:center;gap:28px}
-.top nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink-2)}
-.top nav a:hover{color:var(--graphite);text-decoration:underline}
-.cta{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;background:var(--graphite);color:#fff;text-decoration:none;font-weight:700;font-size:15px;font-variation-settings:"wdth" 110;border-radius:3px;transition:background .2s var(--ease),transform .2s var(--ease)}
-.cta:hover{background:var(--laser-deep);color:#fff;transform:translateY(-1px)}
-.cta svg{width:16px;height:16px}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--anod-muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.08em}
+.top nav{display:flex;align-items:center;gap:30px}
+.top nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--anod-text);transition:color .2s}
+.top nav a:hover{color:#fff}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--graphite);color:#fff;text-decoration:none;font-weight:700;font-size:15px;font-variation-settings:"wdth" 110;border-radius:4px;border:0;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease)}
+.cta:hover{background:var(--laser-deep);transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(51,80,111,.7)}
+.cta:active{transform:translateY(0)}
+.cta .ico{transition:transform .3s var(--ease)}
+.cta:hover .ico{transform:translateX(3px)}
+.cta.light{background:var(--steel-hi);color:var(--graphite)}
+.cta.light:hover{background:#fff;box-shadow:0 12px 30px -12px rgba(157,179,204,.55)}
 .top .cta{padding:10px 16px;font-size:14px;white-space:nowrap}
-.top nav a.cta,.top nav a.cta:hover{text-decoration:none}
-.top nav a.cta,.top nav a.cta:hover{color:#fff}
-.link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-variation-settings:"wdth" 110;text-decoration:none;border-bottom:2px solid var(--graphite);padding:4px 0}
-.link-arrow:hover{color:var(--laser-deep);border-color:var(--laser)}
+.top nav a.cta{color:var(--graphite)}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-variation-settings:"wdth" 110;text-decoration:none;border-bottom:2px solid currentColor;padding:4px 0;transition:color .2s}
+.link-arrow:hover{color:var(--accent-soft)}
 
 /* ---------- hero ---------- */
-.hero{padding:64px 0 0}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(44px,6.6vw,88px);margin-bottom:26px}
-.hero h1 em{font-style:normal;color:var(--laser-deep)}
-.hero .lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink-2);max-width:36ch;margin-bottom:34px}
+.hero{position:relative;background:var(--anod);color:var(--anod-text);padding:150px 0 48px;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(60% 70% at 78% 38%,rgba(74,106,144,.30),transparent 70%),radial-gradient(40% 50% at 10% 100%,rgba(74,106,144,.14),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:radial-gradient(circle at 50% 50%,#2a3036 0 2.6px,transparent 3px);background-size:18px 18px;
+  -webkit-mask-image:linear-gradient(100deg,transparent 45%,#000 85%);mask-image:linear-gradient(100deg,transparent 45%,#000 85%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,6.4vw,92px);color:#f2f4f5;margin-bottom:26px;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--accent-soft)}
+.hero .lede{font-size:clamp(17px,1.5vw,20px);max-width:38ch;margin-bottom:36px}
 .actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.plate{position:relative;aspect-ratio:5/4}
+.hero .link-arrow{color:#eef0f5}
+.hero .link-arrow:hover{color:var(--accent-soft)}
+
+.plate-wrap{perspective:1100px}
+.plate{position:relative;aspect-ratio:5/4;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .5s var(--ease);filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
 .plate svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.plate .mark{position:absolute;left:12%;width:76%;top:50%;transform:translateY(-52%)}
-.cutline{stroke:var(--laser);stroke-width:1.5;fill:none;stroke-dasharray:1;stroke-dashoffset:0}
-.js .cutline{animation:cut 2.4s var(--ease) .2s both}
+.plate .mark{position:absolute;left:12%;width:76%;top:50%;transform:translateY(-52%) translateZ(30px)}
+.cutline{stroke:var(--accent-soft);stroke-width:1.5;fill:none;stroke-dasharray:1;stroke-dashoffset:0}
+.js .cutline{animation:cut 2.6s var(--ease) .3s both}
 @keyframes cut{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-.plate-tag{position:absolute;right:6%;bottom:7%;font-size:11px;color:var(--muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em}
+.plate-tag{position:absolute;right:6%;bottom:7%;font-size:11px;color:#6b737a;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;transform:translateZ(20px)}
 
-/* title block */
-.titleblock{margin-top:64px;display:grid;grid-template-columns:2fr repeat(4,1fr);border:1px solid var(--graphite);background:var(--steel-hi)}
-.titleblock>div{padding:14px 18px;border-left:1px solid var(--graphite)}
+/* title block, now smoked glass on the hero */
+.titleblock{margin-top:72px;display:grid;grid-template-columns:2fr repeat(4,1fr);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:6px}
+.titleblock>div{padding:16px 20px;border-left:1px solid rgba(255,255,255,.12)}
 .titleblock>div:first-child{border-left:0}
-.titleblock .k{display:block;font-size:11px;color:var(--muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.titleblock .v{font-weight:700;font-size:18px;font-variation-settings:"wdth" 112;line-height:1.2}
-.titleblock .v.big{font-size:20px}
+.titleblock dt{font-size:11px;color:var(--anod-muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.titleblock dd{font-weight:700;font-size:20px;font-variation-settings:"wdth" 112;line-height:1.2;color:#f2f4f5;font-variant-numeric:tabular-nums}
 
-/* ---------- services (job sheet) ---------- */
-.section{padding:120px 0}
+/* ---------- tools strip ---------- */
+.strip{background:var(--graphite);color:var(--anod-text);border-top:1px solid var(--anod-rule);overflow:hidden;padding:18px 0}
+.strip-track{display:flex;width:max-content;animation:slide 40s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+.strip ul{display:flex;align-items:center;list-style:none;flex:none}
+.strip li{display:flex;align-items:center;gap:28px;padding-right:28px;font-size:14px;font-weight:600;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.strip li::after{content:"";width:6px;height:6px;background:var(--laser);transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+.section{padding:128px 0}
 .head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
-.head h2{font-size:clamp(36px,4.6vw,60px)}
+.head h2,.section h2{font-size:clamp(36px,4.6vw,60px)}
 .head p{color:var(--ink-2);max-width:44ch}
-.jobs{border-top:2px solid var(--graphite)}
-.job{position:relative;display:grid;grid-template-columns:1.15fr 1.25fr .9fr;gap:40px;padding:34px 0;border-bottom:1px solid var(--rule)}
-.job::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--laser);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
-.job:hover::after{transform:scaleX(1)}
-.job h3{font-size:clamp(24px,2.4vw,32px)}
-.job h3 .soon{display:inline-block;vertical-align:.35em;margin-left:10px;font-size:11px;font-weight:700;padding:4px 7px;background:var(--graphite);color:var(--steel);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;border-radius:2px}
-.job p{color:var(--ink-2);max-width:46ch}
-.job ul{list-style:none;font-size:14px;color:var(--muted);font-variation-settings:"wdth" 88}
-.job li{padding:3px 0 3px 18px;position:relative}
-.job li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:2px;background:var(--graphite)}
 
-/* ---------- checklist ---------- */
-.perf{height:22px;background-image:radial-gradient(circle at 50% 50%,var(--hole) 0 3.2px,transparent 3.6px);background-size:18px 18px;background-position:center;opacity:.9}
-.checks-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
-.checks-grid h2{font-size:clamp(36px,4.6vw,60px);position:sticky;top:110px}
+/* ---------- services bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.tile{position:relative;background:var(--steel-hi);border:1px solid var(--rule);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease)}
+.tile:hover{transform:translateY(-4px);border-color:var(--accent-soft);box-shadow:0 1px 2px rgba(17,19,21,.06),0 22px 40px -18px rgba(51,80,111,.38)}
+.tile h3{font-size:clamp(22px,2vw,28px)}
+.tile p{color:var(--ink-2);font-size:16px;max-width:46ch}
+.tile .viz{margin-top:auto;padding-top:14px}
+.t-maint{grid-column:span 3;grid-row:span 2}
+.t-fix,.t-seo{grid-column:span 3}
+.t-sites,.t-auto,.t-ai{grid-column:span 2}
+.soon{display:inline-block;vertical-align:.3em;margin-left:10px;font-size:11px;font-weight:700;padding:4px 7px;background:var(--graphite);color:var(--steel);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;border-radius:3px}
+
+/* maintenance queue */
+.queue{list-style:none;border:1px solid var(--rule);border-radius:6px;background:#fff;overflow:hidden}
+.queue li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;border-top:1px solid #e6e9ef;font-size:15px}
+.queue li:first-child{border-top:0}
+.queue .st{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--muted);font-variation-settings:"wdth" 90;white-space:nowrap}
+.queue .st .ico{width:15px;height:15px;color:var(--ok);opacity:0;transform:scale(.4);transition:opacity .3s,transform .4s var(--ease)}
+.queue li.done .st{color:var(--ok)}
+.queue li.done .st .ico{opacity:1;transform:none}
+.queue .bar{height:3px;background:#e6e9ef}
+.queue .bar i{display:block;height:100%;width:var(--p,0%);background:var(--laser);transition:width .6s var(--ease)}
+
+/* error -> fixed */
+.err{font-family:var(--mono);font-size:12.5px;line-height:1.55;background:var(--anod);color:#d7a79c;border-radius:6px;padding:16px 18px;position:relative;overflow:hidden}
+.err .msg{transition:opacity .4s,filter .4s}
+.err .res{position:absolute;inset:0;display:flex;align-items:center;gap:10px;padding:16px 18px;color:#cfe3d4;background:rgba(20,34,26,.86);clip-path:inset(0 100% 0 0);transition:clip-path .8s var(--ease)}
+.err.fixed .res{clip-path:inset(0 0 0 0)}
+.err.fixed .msg{opacity:.25;filter:blur(2px)}
+.err .res .ico{width:18px;height:18px;color:#8fc19c}
+
+/* redirect table */
+.redir{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12.5px;background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.redir td{padding:9px 12px;border-top:1px solid #e6e9ef;white-space:nowrap}
+.redir tr:first-child td{border-top:0}
+.redir td:nth-child(2){color:var(--muted)}
+.redir td:last-child{text-align:right;color:var(--laser-deep);font-weight:500}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:7px;list-style:none}
+.chips li{font-size:13px;font-weight:600;padding:6px 10px;border:1px solid var(--rule);border-radius:4px;background:#fff;color:var(--ink-2)}
+
+/* bulk run grid */
+.fleet{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.fleet i{aspect-ratio:1;border-radius:2px;background:#dfe3ea;transition:background .3s}
+.fleet i.on{background:var(--laser)}
+.fleet-note{margin-top:10px;font-size:13px;color:var(--muted);font-weight:600;font-variation-settings:"wdth" 90}
+
+/* ai frame */
+.frame{aspect-ratio:16/8;border-radius:6px;background:linear-gradient(135deg,#2a3440,#4a6a90 60%,#9db3cc);display:grid;place-items:center;position:relative;overflow:hidden}
+.frame::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.18),transparent 50%)}
+.frame svg{width:44px;height:44px;color:#fff;position:relative;z-index:1}
+
+/* ---------- before / after (dark, with a fix sheet) ---------- */
+.compare{background:var(--anod);color:var(--anod-text);position:relative;isolation:isolate;overflow:hidden}
+.compare::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 78% 50%,rgba(74,106,144,.26),transparent 70%)}
+.compare-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.compare h2{color:#f2f4f5;margin-bottom:22px;font-size:clamp(34px,3.9vw,54px)}
+.compare .intro{max-width:40ch;margin-bottom:30px}
+.sheet{border-top:1px solid var(--anod-rule)}
+.sheet div{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--anod-rule)}
+.sheet dt{font-size:11px;color:var(--anod-muted);font-family:Archivo,sans-serif;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em;padding-top:4px}
+.sheet dd{color:#e6e9ec;font-size:16px;line-height:1.5}
+.ba-note{margin-top:18px;font-size:13px;color:var(--anod-muted)}
+.ba{position:relative;container-type:inline-size;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#fff;user-select:none;touch-action:pan-y;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 80px -30px rgba(0,0,0,.65)}
+.pane{position:absolute;inset:0;display:flex;flex-direction:column}
+.chrome{display:flex;align-items:center;gap:12px;height:clamp(28px,6cqw,40px);padding:0 14px;background:#e9ecf1;border-bottom:1px solid #d7dbe2;flex:none}
+.chrome .url{flex:1;max-width:46%;height:62%;border-radius:20px;background:#fff;font-size:max(10px,1.5cqw);color:var(--muted);display:flex;align-items:center;padding:0 12px;font-family:var(--mono)}
+.chrome .dots{display:flex;gap:6px}
+.chrome .dots i{width:10px;height:10px;border-radius:50%;background:#c9ced6}
+.down{flex:1;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 9cqw;color:#2c3338;font-family:-apple-system,"Segoe UI",Roboto,sans-serif}
+.down p{font-size:2.3cqw;margin-bottom:1.4cqw}
+.down a{color:#2271b1;font-size:1.7cqw}
+.site{flex:1;background:#f6f6f2;display:flex;flex-direction:column;gap:3cqw;padding:3cqw 5cqw 4cqw;font-family:Archivo,sans-serif;color:#1f2d27}
+.s-nav{display:flex;align-items:center;gap:2cqw}
+.s-logo{width:3.2cqw;height:3.2cqw;border-radius:.8cqw;background:#2f5d4b}
+.s-name{font-weight:800;font-size:1.9cqw;margin-right:auto}
+.s-links{display:flex;gap:1.8cqw}
+.s-links i{display:block;width:5cqw;height:.8cqw;border-radius:1cqw;background:#cfd5cd}
+.s-btn{font-size:1.4cqw;font-weight:700;background:#2f5d4b;color:#fff;padding:1cqw 1.8cqw;border-radius:.7cqw}
+.s-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:4cqw;align-items:center;flex:1}
+.s-hero h4{font-size:4.8cqw;line-height:1.02;font-variation-settings:"wdth" 108;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6cqw}
+.s-hero p{font-size:1.6cqw;line-height:1.5;color:#55625c;margin-bottom:2.4cqw}
+.s-ctas{display:flex;gap:1.2cqw}
+.s-ctas span{font-size:1.4cqw;font-weight:700;padding:1.1cqw 1.8cqw;border-radius:.7cqw;background:#2f5d4b;color:#fff}
+.s-ctas span+span{background:transparent;color:#2f5d4b;box-shadow:inset 0 0 0 .18cqw #2f5d4b}
+.s-img{position:relative;aspect-ratio:1/.9;border-radius:1.6cqw;overflow:hidden;background:radial-gradient(70% 60% at 70% 30%,#c9dccf,transparent 70%),linear-gradient(160deg,#dfe8e1,#8eae9a 60%,#2f5d4b)}
+.s-img svg{position:absolute;right:8%;top:12%;width:46%;color:rgba(255,255,255,.75)}
+.s-card{position:absolute;left:7%;bottom:8%;background:#fff;border-radius:1cqw;padding:1.2cqw 1.6cqw;font-size:1.35cqw;font-weight:700;display:flex;align-items:center;gap:.9cqw;box-shadow:0 1cqw 2.4cqw -1cqw rgba(0,0,0,.3)}
+.s-card i{width:1cqw;height:1cqw;border-radius:50%;background:#3e8a5f}
+.s-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw}
+.s-cards div{background:#fff;border-radius:1cqw;padding:1.6cqw;display:grid;gap:.8cqw;box-shadow:0 .6cqw 2cqw -1.2cqw rgba(0,0,0,.25)}
+.s-cards b{width:3cqw;height:3cqw;border-radius:50%;background:#e1ebe4}
+.s-cards i{display:block;height:.8cqw;border-radius:1cqw;background:#dfe3dc}
+.s-cards i:last-child{width:65%}
+.before{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+.chip{position:absolute;bottom:2.4cqw;display:inline-flex;align-items:center;gap:.8cqw;font:500 max(10px,1.45cqw)/1 var(--mono);padding:1cqw 1.4cqw;border-radius:3cqw;background:#fff;box-shadow:0 .8cqw 2cqw -1cqw rgba(0,0,0,.35);white-space:nowrap}
+.chip i{width:max(7px,1cqw);height:max(7px,1cqw);border-radius:50%}
+.before .chip{left:2.2cqw;color:#8f3f30}.before .chip i{background:var(--fail)}
+.after .chip{right:2.2cqw;color:#2f6a45}.after .chip i{background:#3e8a5f}
+.handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(17,19,21,.25);z-index:4;pointer-events:none}
+.knob{position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#fff;color:var(--graphite);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.35);transition:transform .25s var(--ease)}
+.ba:hover .knob{transform:scale(1.08)}
+.knob svg{width:22px;height:22px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;margin:0}
+.ba:has(input:focus-visible) .knob{outline:2px solid var(--accent-soft);outline-offset:3px}
+
+/* ---------- process + fix log ---------- */
+.checks-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.sticky{position:sticky;top:110px}
+.sticky h2{margin-bottom:32px}
+.term{background:var(--anod);color:#c9ced2;border-radius:8px;border:1px solid var(--anod-rule);box-shadow:0 30px 60px -30px rgba(17,19,21,.5);overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--anod-rule);font-size:12px;color:var(--anod-muted);font-family:var(--mono)}
+.term-bar i{width:9px;height:9px;border-radius:50%;background:#3a4147}
+.term pre{font-family:var(--mono);font-size:13px;line-height:1.75;padding:16px 18px 20px;white-space:pre-wrap;min-height:228px}
+.term .ln{display:block}
+.js .term .ln{opacity:0;transform:translateY(4px);transition:opacity .25s,transform .3s var(--ease)}
+.js .term .ln.on{opacity:1;transform:none}
+.term .p{color:var(--accent-soft)}
+.term .ok{color:#8fc19c}.term .fail{color:#e0a091}.term .fx{color:#d9c38a}
+.caret{display:inline-block;width:8px;height:15px;background:var(--accent-soft);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 .checks{list-style:none}
 .checks li{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--rule)}
 .checks li:last-child{border-bottom:1px solid var(--rule)}
-.box{width:32px;height:32px;border:2px solid var(--graphite);display:grid;place-items:center;margin-top:4px}
-.box svg{width:22px;height:22px;stroke:var(--laser-deep);stroke-width:3;fill:none;stroke-linecap:square}
+.box{width:32px;height:32px;border:2px solid var(--graphite);border-radius:3px;display:grid;place-items:center;margin-top:4px}
+.box svg{width:22px;height:22px;stroke:var(--laser-deep);stroke-width:3;fill:none;stroke-linecap:square;stroke-dasharray:24;stroke-dashoffset:0}
+.js .checks li:not(.in) .box svg{stroke-dashoffset:24}
+.js .checks .box svg{transition:stroke-dashoffset .7s var(--ease) .15s}
 .checks h3{font-size:24px;margin-bottom:8px}
 .checks p{color:var(--ink-2);max-width:52ch}
 
 /* ---------- founder ---------- */
-.founder{background:var(--anod);color:var(--anod-text);padding:120px 0}
+.founder{background:var(--anod);color:var(--anod-text);padding:128px 0}
 .founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
-.portrait{position:relative;border:1px solid var(--anod-rule);padding:12px;background:var(--anod-2)}
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.15) contrast(1.04)}
-.portrait figcaption{display:flex;justify-content:space-between;padding:12px 2px 0;font-size:11px;color:#9aa2a8;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em}
+.portrait{position:relative;border:1px solid var(--anod-rule);padding:12px;background:var(--anod-2);border-radius:6px}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.15) contrast(1.04);border-radius:3px}
+.portrait figcaption{display:flex;justify-content:space-between;padding:12px 2px 0;font-size:11px;color:var(--anod-muted);font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.1em}
 .founder h2{font-size:clamp(36px,4.6vw,60px);color:#f2f4f5;margin-bottom:28px}
 .founder h2 em{font-style:normal;color:var(--accent-soft)}
 .founder p{margin-bottom:18px;max-width:58ch}
 .founder .li{color:#f2f4f5;font-weight:600}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;list-style:none}
-.tags li{font-size:12px;padding:7px 11px;border:1px solid var(--anod-rule);color:#d7dcdf;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.08em;border-radius:2px}
+.tags li{font-size:12px;padding:7px 11px;border:1px solid var(--anod-rule);color:#d7dcdf;font-variation-settings:var(--narrow);text-transform:uppercase;letter-spacing:.08em;border-radius:3px}
 
 /* ---------- contact ---------- */
-.contact{background:var(--slate);color:var(--graphite);padding:110px 0 96px;border-top:1px solid var(--rule)}
+.contact{background:var(--slate);color:var(--graphite);padding:120px 0 104px;border-top:1px solid var(--rule)}
 .contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:end}
 .contact h2{font-size:clamp(44px,6.4vw,92px);letter-spacing:-.03em;max-width:10ch}
 .contact h2 em{font-style:normal;color:var(--laser-deep)}
-.contact-panel{position:relative;background:var(--steel-hi);border:1px solid var(--graphite);padding:36px 36px 30px;box-shadow:8px 8px 0 var(--graphite)}
+.contact-panel{background:var(--steel-hi);border:1px solid var(--rule);border-radius:8px;padding:36px 36px 30px;box-shadow:0 1px 2px rgba(17,19,21,.06),0 30px 60px -28px rgba(17,19,21,.35)}
 .contact-panel p{font-size:clamp(17px,1.5vw,19px);color:var(--ink-2);max-width:40ch;margin-bottom:28px}
 .contact-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .cta-lg{padding:17px 26px;font-size:17px}
-.cta-lg svg{transition:transform .25s var(--ease)}
-.cta-lg:hover svg{transform:translateX(3px)}
-.ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 20px;background:transparent;border:2px solid var(--graphite);border-radius:3px;font:inherit;font-weight:700;font-size:15px;font-variation-settings:"wdth" 110;color:var(--graphite);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
+.ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 20px;background:transparent;border:2px solid var(--graphite);border-radius:4px;font:inherit;font-weight:700;font-size:15px;font-variation-settings:"wdth" 110;color:var(--graphite);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
 .ghost:hover{background:var(--graphite);color:#fff}
-.ghost svg{width:16px;height:16px}
 .ghost[data-done]{border-color:var(--laser-deep);color:var(--laser-deep);background:transparent}
 .contact .sub{margin-top:26px;padding-top:20px;border-top:1px solid var(--rule);display:flex;gap:24px;flex-wrap:wrap;font-weight:600;font-size:15px}
 .contact .sub a{text-decoration:none;border-bottom:1px solid currentColor}
 .contact .sub a:hover{color:var(--laser-deep)}
 
-footer{background:var(--graphite);color:#9aa2a8;font-size:14px;padding:26px 0}
+footer{background:var(--anod);color:var(--anod-muted);font-size:14px;padding:26px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-footer a{color:#c9ced2}
+footer a{color:var(--anod-text)}
+
+/* ---------- glass, used with restraint: one recipe for light, one for dark ---------- */
+:root{
+  --glass-l:rgba(246,247,250,.58); --glass-l-edge:rgba(255,255,255,.75);
+  --glass-d:rgba(255,255,255,.045); --glass-d-edge:rgba(255,255,255,.10);
+  --blur:blur(16px) saturate(1.25);
+}
+#services,.contact,#process{position:relative;isolation:isolate}
+#services::before,.contact::before,#process::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+#services::before{background:radial-gradient(38% 30% at 12% 30%,rgba(157,179,204,.55),transparent 70%),radial-gradient(34% 34% at 88% 70%,rgba(74,106,144,.28),transparent 70%)}
+#process::before{background:radial-gradient(36% 40% at 18% 55%,rgba(157,179,204,.45),transparent 70%)}
+.contact::before{background:radial-gradient(40% 60% at 80% 60%,rgba(255,255,255,.55),transparent 70%),radial-gradient(30% 40% at 15% 20%,rgba(74,106,144,.18),transparent 70%)}
+.tile,.contact-panel{background:var(--glass-l);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border-color:rgba(196,201,212,.7);box-shadow:inset 0 1px 0 var(--glass-l-edge),0 1px 2px rgba(17,19,21,.05),0 18px 40px -22px rgba(17,19,21,.28)}
+.tile:hover{box-shadow:inset 0 1px 0 var(--glass-l-edge),0 1px 2px rgba(17,19,21,.05),0 24px 44px -20px rgba(51,80,111,.38)}
+.term{background:rgba(17,19,21,.88);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border-color:var(--glass-d-edge)}
+.portrait{background:var(--glass-d);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border-color:var(--glass-d-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.founder{position:relative;isolation:isolate}
+.founder::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 50% at 22% 45%,rgba(74,106,144,.22),transparent 70%)}
+.tags li{background:var(--glass-d);border-color:var(--glass-d-edge)}
+.sheet{background:var(--glass-d);border:1px solid var(--glass-d-edge);border-radius:8px;padding:4px 20px;-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
+.sheet div:last-child{border-bottom:0}
+
+/* ---------- scroll reveal (content is visible without JS) ---------- */
+.js .rv{opacity:0;transform:translateY(22px);filter:blur(4px);transition:opacity .8s var(--ease),transform .9s var(--ease),filter .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+.js .bento .rv:nth-child(2){transition-delay:.06s}.js .bento .rv:nth-child(3){transition-delay:.12s}
+.js .bento .rv:nth-child(4){transition-delay:.06s}.js .bento .rv:nth-child(5){transition-delay:.12s}.js .bento .rv:nth-child(6){transition-delay:.18s}
 
 /* ---------- responsive ---------- */
 @media (max-width:980px){
+  .hero{padding-top:120px}
   .hero-grid,.head,.checks-grid,.founder-grid,.contact-grid{grid-template-columns:1fr}
-  .hero-grid{gap:32px}
+  .hero-grid{gap:40px}
+  .plate-wrap{max-width:520px;width:100%;margin:0 auto}
   .head{gap:20px;margin-bottom:40px}
-  .contact-grid{gap:40px}
-  .contact-panel{max-width:620px}
-  .plate{max-width:560px;width:100%;margin:0 auto}
-  .job{grid-template-columns:1fr 1fr;gap:16px 32px}
-  .job h3{grid-column:1/-1}
-  .checks-grid h2{position:static}
+  .sticky{position:static}
   .titleblock{grid-template-columns:repeat(2,1fr)}
-  .titleblock>div{border-left:0;border-top:1px solid var(--graphite)}
-  .titleblock>div:nth-child(even){border-left:1px solid var(--graphite)}
+  .titleblock>div{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
   .titleblock>div:first-child{grid-column:1/-1;border-top:0}
-  .titleblock>div:nth-child(2),.titleblock>div:nth-child(3){border-top:1px solid var(--graphite)}
-  .titleblock>div:nth-child(2){border-left:0}
-  .titleblock>div:nth-child(3){border-left:1px solid var(--graphite)}
-  .titleblock>div:nth-child(4){border-left:0}
+  .titleblock>div:nth-child(odd):not(:first-child){border-left:1px solid rgba(255,255,255,.12)}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .t-maint,.t-fix,.t-seo{grid-column:span 2;grid-row:auto}
+  .t-sites,.t-auto{grid-column:span 1}
+  .t-ai{grid-column:span 2}
   .top nav a:not(.cta){display:none}
   .founder-grid{gap:40px}
   .portrait{max-width:420px}
+  .contact-grid{gap:40px}
+  .contact-panel{max-width:620px}
+  .compare-grid{grid-template-columns:1fr;gap:44px}
 }
 @media (max-width:600px){
   .wrap{padding:0 18px}
-  .hero{padding-top:36px}
-  .section,.founder{padding:84px 0}
-  .job{grid-template-columns:1fr}
+  .hero{padding:108px 0 36px}
+  .section,.founder{padding:88px 0}
+  .bento{grid-template-columns:1fr}
+  .t-maint,.t-fix,.t-seo,.t-sites,.t-auto,.t-ai{grid-column:auto}
+  .tile{padding:22px}
   .brand small{display:none}
-  .brand img{width:52px}
-  .contact-panel{padding:26px 22px 22px;box-shadow:5px 5px 0 var(--graphite);margin-right:5px}
+  .brand img{width:50px}
+  .titleblock dd{font-size:17px}
+  .contact-panel{padding:26px 22px 22px}
   .contact-actions>*{width:100%;justify-content:center}
-  .titleblock .v{font-size:16px}
+  .ba{aspect-ratio:4/4.4}
+  .s-hero{grid-template-columns:1fr;align-content:center}
+  .s-img,.s-cards,.s-links{display:none}
+  .s-logo{width:6cqw;height:6cqw;border-radius:1.4cqw}
+  .s-name{font-size:4.2cqw}
+  .s-btn{font-size:3.4cqw;padding:2cqw 3cqw;border-radius:1.4cqw}
+  .s-hero h4{font-size:9cqw;margin-bottom:3cqw}
+  .s-hero p{font-size:3.8cqw;margin-bottom:4cqw}
+  .s-ctas{gap:2.4cqw}
+  .s-ctas span{font-size:3.4cqw;padding:2.4cqw 3.4cqw;border-radius:1.4cqw}
+  .site{padding:5cqw 6cqw}
+  .down p{font-size:4.6cqw;margin-bottom:3cqw}
+  .down a{font-size:3.6cqw}
+  .sheet div{grid-template-columns:72px 1fr}
+  .redir td:nth-child(2){display:none}
+  .term pre{font-size:12px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .cutline{animation:none}
-  .job::after,.cta{transition:none}
+  .js .cutline,.strip-track,.caret{animation:none}
+  .strip-track{flex-wrap:wrap;width:auto}
+  .strip ul+ul{display:none}
+  .plate{transform:none!important}
+  .js .rv{opacity:1;transform:none;filter:none;transition:none}
+  .tile,.cta,.cta .ico,.err .res,.queue .bar i{transition:none}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
-<header class="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="2" fill="none"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="square"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5" y="5" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3 10.5V2.5h8" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol>
+</svg>
+
+<header class="top" id="hdr">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Bilbija Technology Limited, home">
-      <img src="assets/btl-mark.webp" alt="" width="64" height="38">
+      <img src="assets/btl-mark-light.webp" alt="" width="60" height="35">
       <span>Bilbija Technology<small>Limited · Serbia</small></span>
     </a>
     <nav aria-label="Main">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#founder">Founder</a>
-      <a class="cta" href="#contact">Contact me</a>
+      <a class="cta light" href="#contact">Contact me</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="wrap">
       <div class="hero-grid">
         <div>
           <h1>Websites, kept in <em>working order.</em></h1>
           <p class="lede">WordPress maintenance, troubleshooting and AI-assisted automation for digital agencies and businesses. The updates, fixes and careful routine work that keep your sites running.</p>
           <div class="actions">
-            <a class="cta" href="#contact">Contact me
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+            <a class="cta light" href="#contact">Contact me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="link-arrow" href="#services">See what I fix</a>
           </div>
         </div>
 
-        <div class="plate" aria-hidden="true">
-          <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <pattern id="holes" width="16" height="16" patternUnits="userSpaceOnUse">
-                <circle cx="8" cy="8" r="3.2" fill="#c3c8cc"/>
-              </pattern>
-              <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#eef0f1"/>
-                <stop offset=".55" stop-color="#e3e6e8"/>
-                <stop offset="1" stop-color="#d3d7da"/>
-              </linearGradient>
-            </defs>
-            <rect x="12" y="12" width="476" height="376" rx="10" fill="url(#sheen)" stroke="#a9b0b5"/>
-            <rect x="300" y="12" width="188" height="376" fill="url(#holes)" clip-path="inset(0 round 0 10px 10px 0)"/>
-            <g fill="#dcdfe1" stroke="#9aa2a8">
-              <circle cx="38" cy="38" r="9"/><circle cx="462" cy="38" r="9"/>
-              <circle cx="38" cy="362" r="9"/><circle cx="462" cy="362" r="9"/>
-            </g>
-            <g stroke="#9aa2a8" stroke-width="1.5">
-              <path d="M33 38h10M38 33v10M457 38h10M462 33v10M33 362h10M38 357v10M457 362h10M462 357v10"/>
-            </g>
-            <rect class="cutline" pathLength="1" x="2" y="2" width="496" height="396" rx="16"/>
-          </svg>
-          <img class="mark" src="assets/btl-mark.webp" alt="" width="875" height="515">
-          <span class="plate-tag">BTL · Irig RS · est. 2023</span>
+        <div class="plate-wrap" aria-hidden="true">
+          <div class="plate" id="plate">
+            <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <pattern id="holes" width="16" height="16" patternUnits="userSpaceOnUse">
+                  <circle cx="8" cy="8" r="3.2" fill="#c3c8cc"/>
+                </pattern>
+                <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f1f3f4"/>
+                  <stop offset=".55" stop-color="#e3e6e8"/>
+                  <stop offset="1" stop-color="#cfd4d8"/>
+                </linearGradient>
+              </defs>
+              <rect x="12" y="12" width="476" height="376" rx="10" fill="url(#sheen)" stroke="#a9b0b5"/>
+              <rect x="300" y="12" width="188" height="376" fill="url(#holes)" clip-path="inset(0 round 0 10px 10px 0)"/>
+              <g fill="#dcdfe1" stroke="#9aa2a8">
+                <circle cx="38" cy="38" r="9"/><circle cx="462" cy="38" r="9"/>
+                <circle cx="38" cy="362" r="9"/><circle cx="462" cy="362" r="9"/>
+              </g>
+              <g stroke="#9aa2a8" stroke-width="1.5">
+                <path d="M33 38h10M38 33v10M457 38h10M462 33v10M33 362h10M38 357v10M457 362h10M462 357v10"/>
+              </g>
+              <rect class="cutline" pathLength="1" x="2" y="2" width="496" height="396" rx="16"/>
+            </svg>
+            <img class="mark" src="assets/btl-mark.webp" alt="" width="875" height="515">
+            <span class="plate-tag">BTL · Irig RS · est. 2023</span>
+          </div>
         </div>
       </div>
 
       <dl class="titleblock">
-        <div><dt class="k">Bilbija Technology Limited</dt><dd class="v big">WordPress &amp; web operations</dd></div>
-        <div><dt class="k">Client sites supported</dt><dd class="v">70+</dd></div>
-        <div><dt class="k">WordPress since</dt><dd class="v">2022</dd></div>
-        <div><dt class="k">Founded</dt><dd class="v">2023</dd></div>
-        <div><dt class="k">Works</dt><dd class="v">Remote, worldwide</dd></div>
+        <div><dt>Bilbija Technology Limited</dt><dd>WordPress &amp; web operations</dd></div>
+        <div><dt>Client sites supported</dt><dd><span data-count="70">70</span>+</dd></div>
+        <div><dt>WordPress since</dt><dd>2022</dd></div>
+        <div><dt>Founded</dt><dd>2023</dd></div>
+        <div><dt>Works</dt><dd>Remote, worldwide</dd></div>
       </dl>
     </div>
   </section>
 
+  <div class="strip" aria-label="Platforms and tools I work with">
+    <div class="strip-track">
+      <ul><li>WordPress</li><li>Elementor</li><li>Divi</li><li>Oxygen</li><li>WPBakery</li><li>Gutenberg</li><li>GoHighLevel</li><li>WP Engine</li><li>Kinsta</li><li>Cloudflare</li><li>Rank Math</li><li>Gravity Forms</li><li>Google Tag Manager</li><li>GA4</li><li>Claude Code</li></ul>
+      <ul aria-hidden="true"><li>WordPress</li><li>Elementor</li><li>Divi</li><li>Oxygen</li><li>WPBakery</li><li>Gutenberg</li><li>GoHighLevel</li><li>WP Engine</li><li>Kinsta</li><li>Cloudflare</li><li>Rank Math</li><li>Gravity Forms</li><li>Google Tag Manager</li><li>GA4</li><li>Claude Code</li></ul>
+    </div>
+  </div>
+
   <section class="section" id="services">
     <div class="wrap">
-      <div class="head">
+      <div class="head rv">
         <h2>What I fix, maintain and automate</h2>
         <p>Practical work for websites that need to stay fast, secure and up to date, especially when there are many of them.</p>
       </div>
-      <div class="jobs">
-        <article class="job">
+
+      <div class="bento">
+        <article class="tile t-maint rv">
           <h3>WordPress maintenance</h3>
           <p>Core, plugin and theme updates with backups first and checks after, so nothing breaks quietly.</p>
-          <ul><li>Updates &amp; post-update checks</li><li>Backups &amp; staging</li><li>Security &amp; monitoring</li></ul>
+          <div class="viz">
+            <ul class="queue" id="queue">
+              <li><span>Backup: database + files</span><span class="st"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><b>queued</b></span></li>
+              <li><span>WordPress core</span><span class="st"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><b>queued</b></span></li>
+              <li><span>Elementor Pro</span><span class="st"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><b>queued</b></span></li>
+              <li><span>Rank Math SEO</span><span class="st"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><b>queued</b></span></li>
+              <li><span>Forms send a test email</span><span class="st"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><b>queued</b></span></li>
+              <li><span>Key pages checked</span><span class="st"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><b>queued</b></span></li>
+              <li class="bar" aria-hidden="true"><i></i></li>
+            </ul>
+          </div>
         </article>
-        <article class="job">
+
+        <article class="tile t-fix rv">
           <h3>Troubleshooting &amp; bug fixing</h3>
           <p>PHP errors, plugin conflicts, page-builder problems, broken forms and lost emails, fixed at the cause.</p>
-          <ul><li>PHP &amp; plugin conflicts</li><li>Forms, SMTP, email delivery</li><li>Tracking scripts &amp; integrations</li></ul>
+          <div class="viz">
+            <div class="err" id="err">
+              <div class="msg">PHP Fatal error: Uncaught Error: Call to undefined function in /wp-content/plugins/…/class-loader.php:214</div>
+              <div class="res"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Cause found: plugin conflict after update. Patched, page loads.</div>
+            </div>
+          </div>
         </article>
-        <article class="job">
-          <h3>WordPress &amp; GoHighLevel sites</h3>
-          <p>Builds, changes and ongoing support on the builders and platforms agencies actually use.</p>
-          <ul><li>Elementor, Divi, Oxygen, WPBakery</li><li>GoHighLevel websites</li><li>Hosting moves &amp; setup</li></ul>
-        </article>
-        <article class="job">
+
+        <article class="tile t-seo rv">
           <h3>Technical &amp; on-page SEO</h3>
           <p>The implementation side of SEO, including bulk updates across hundreds of pages at once.</p>
-          <ul><li>Redirects &amp; URLs</li><li>Schema &amp; metadata</li><li>Internal linking</li></ul>
+          <div class="viz">
+            <table class="redir" aria-label="Example redirects">
+              <tr><td>/our-services/</td><td>→</td><td>/services/</td><td>301</td></tr>
+              <tr><td>/contact-us.html</td><td>→</td><td>/contact/</td><td>301</td></tr>
+              <tr><td>/blog/old-post/</td><td>→</td><td>/blog/new-post/</td><td>301</td></tr>
+            </table>
+          </div>
         </article>
-        <article class="job">
+
+        <article class="tile t-sites rv">
+          <h3>WordPress &amp; GoHighLevel sites</h3>
+          <p>Builds, changes and support on the builders agencies actually use.</p>
+          <div class="viz">
+            <ul class="chips"><li>Elementor</li><li>Divi</li><li>Oxygen</li><li>WPBakery</li><li>Gutenberg</li><li>GoHighLevel</li></ul>
+          </div>
+        </article>
+
+        <article class="tile t-auto rv">
           <h3>AI-assisted automation</h3>
-          <p>Repetitive multi-site work turned into scripts, small tools and clear procedures.</p>
-          <ul><li>Bulk changes across many sites</li><li>Audits &amp; reports</li><li>Documented, repeatable runs</li></ul>
+          <p>Repetitive multi-site work turned into scripts and repeatable runs.</p>
+          <div class="viz">
+            <div class="fleet" id="fleet" aria-hidden="true"></div>
+            <p class="fleet-note" id="fleet-note">Same change, every site</p>
+          </div>
         </article>
-        <article class="job">
+
+        <article class="tile t-ai rv">
           <h3>AI images &amp; video<span class="soon">Soon</span></h3>
-          <p>Promotional images and short videos made with generative AI tools, for social media and ads.</p>
-          <ul><li>Product &amp; promo visuals</li><li>Short-form video</li></ul>
+          <p>Promotional images and short videos made with generative AI, for social media and ads.</p>
+          <div class="viz">
+            <div class="frame" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 16v16l13-8z" fill="currentColor"/></svg></div>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <div class="perf" aria-hidden="true"></div>
+  <section class="section compare">
+    <div class="wrap compare-grid">
+      <div class="rv">
+        <h2>The difference one fix makes</h2>
+        <p class="intro">One failed update can take a whole site down. Drag the handle to see the same site before and after.</p>
+        <dl class="sheet">
+          <div><dt>Symptom</dt><dd>White screen with a critical error right after a plugin update.</dd></div>
+          <div><dt>Cause</dt><dd>The new plugin version wasn't compatible with the server's PHP version.</dd></div>
+          <div><dt>Fix</dt><dd>Restored safely, patched, then updated again with a backup in place.</dd></div>
+          <div><dt>Check</dt><dd>Forms send, key pages load, caches cleared.</dd></div>
+        </dl>
+        <p class="ba-note">Illustration of a typical fix. Not a client site.</p>
+      </div>
+
+      <div class="ba rv" id="ba">
+        <div class="pane after">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">example.com</span></div>
+          <div class="site">
+            <div class="s-nav"><span class="s-logo"></span><span class="s-name">Northside Plumbing</span><span class="s-links"><i></i><i></i><i></i></span><span class="s-btn">Book a visit</span></div>
+            <div class="s-hero">
+              <div>
+                <h4>Fast repairs, honest prices.</h4>
+                <p>Same-week appointments across the city. Tell us what's wrong and we'll call you back.</p>
+                <div class="s-ctas"><span>Book a visit</span><span>Call now</span></div>
+              </div>
+              <div class="s-img">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M44 6a14 14 0 0 0-13 19L8 48a6 6 0 0 0 8 8l23-23A14 14 0 0 0 58 20l-9 9-9-3-3-9 9-9a14 14 0 0 0-2-2z" fill="currentColor"/></svg>
+                <span class="s-card"><i></i>Same-week visits</span>
+              </div>
+            </div>
+            <div class="s-cards"><div><b></b><i></i><i></i></div><div><b></b><i></i><i></i></div><div><b></b><i></i><i></i></div></div>
+          </div>
+          <span class="chip"><i></i>200 · back online</span>
+        </div>
+        <div class="pane before">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">example.com</span></div>
+          <div class="down">
+            <p>There has been a critical error on this website.</p>
+            <a href="#ba" tabindex="-1">Learn more about troubleshooting WordPress.</a>
+          </div>
+          <span class="chip"><i></i>500 · site down</span>
+        </div>
+        <div class="handle"><span class="knob"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></span></div>
+        <input type="range" min="0" max="100" value="50" id="ba-range" aria-label="Compare the broken and the fixed website">
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="process">
     <div class="wrap checks-grid">
-      <h2>Before any change touches a live site</h2>
+      <div class="sticky">
+        <h2 class="rv">Before any change touches a live site</h2>
+        <div class="term rv" aria-label="Example fix log">
+          <div class="term-bar"><i></i><i></i><i></i><span>fix-log</span></div>
+<pre id="term"><span class="ln"><span class="p">$</span> check example.com</span><span class="ln"><span class="ok">[ok]  </span> backup created (database + files)</span><span class="ln"><span class="fail">[fail]</span> contact form: SMTP authentication</span><span class="ln"><span class="fx">[fix] </span> reconnected SMTP, test email delivered</span><span class="ln"><span class="ok">[ok]  </span> caches cleared, checked in a clean browser</span><span class="ln"><span class="ok">[ok]  </span> short note sent to the client</span><span class="ln"><span class="p">$</span> <span class="caret"></span></span></pre>
+        </div>
+      </div>
       <ul class="checks">
-        <li>
+        <li class="rv">
           <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg></span>
           <div><h3>Backup first</h3><p>Every job starts with a fresh backup and, where possible, a staging copy. If anything goes wrong, there is a clean way back.</p></div>
         </li>
-        <li>
+        <li class="rv">
           <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg></span>
           <div><h3>Fix the cause</h3><p>I look for why it broke, not just how to hide it, then verify in a clean browser with caches cleared and logs checked.</p></div>
         </li>
-        <li>
+        <li class="rv">
           <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6"/></svg></span>
           <div><h3>Document &amp; automate</h3><p>You get a short, clear note of what was done. Anything that will happen again becomes a repeatable procedure.</p></div>
         </li>
@@ -337,11 +619,11 @@ footer a{color:#c9ced2}
 
   <section class="founder" id="founder">
     <div class="wrap founder-grid">
-      <figure class="portrait">
+      <figure class="portrait rv">
         <img src="assets/predrag-bilbija.webp" alt="Predrag Bilbija, founder of Bilbija Technology Limited" width="880" height="1100" loading="lazy">
         <figcaption><span>Predrag Bilbija</span><span>Founder</span></figcaption>
       </figure>
-      <div>
+      <div class="rv">
         <h2>From punch presses <em>to WordPress.</em></h2>
         <p>I'm a WordPress developer and technical operations specialist. Since 2022 I've worked hands-on with WordPress, and today I support a portfolio of 70+ client websites for a US digital agency: updates, debugging, hosting, tracking scripts, security and technical SEO.</p>
         <p>Before the web, I was a system administrator, and then spent over two years programming and running CNC punching and laser cutting machines. Production taught me to work to tolerances, plan around deadlines and waste nothing. I founded BTL in 2023 to bring that same discipline straight to clients.</p>
@@ -355,15 +637,12 @@ footer a{color:#c9ced2}
 
   <section class="contact" id="contact">
     <div class="wrap contact-grid">
-      <h2>Something broken? <em>Let's fix it.</em></h2>
-      <div class="contact-panel">
+      <h2 class="rv">Something broken? <em>Let's fix it.</em></h2>
+      <div class="contact-panel rv">
         <p>A form that stopped sending, an update that went wrong, or a set of sites that need regular care. Send a short description and the site address.</p>
         <div class="contact-actions">
-          <a class="cta cta-lg" id="mail-btn" href="https://www.linkedin.com/in/predrag-bilbija/" rel="noopener">Contact me
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-          <button class="ghost" type="button" id="copy-btn" hidden>
-            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3 10.5V2.5h8" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
-            <span>Copy email address</span></button>
+          <a class="cta cta-lg" id="mail-btn" href="https://www.linkedin.com/in/predrag-bilbija/" rel="noopener">Contact me <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="ghost" type="button" id="copy-btn" hidden><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy email address</span></button>
         </div>
         <div class="sub">
           <a href="https://www.linkedin.com/company/bilbijatech/" rel="noopener" target="_blank">BTL on LinkedIn</a>
@@ -383,23 +662,59 @@ footer a{color:#c9ced2}
 
 <script>
 (function(){
-  // Address is assembled here so it never sits in the HTML for scrapers.
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // header: smoked glass once the page has scrolled
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('scrolled',window.scrollY>24)}
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+  // plate tilt follows the pointer (fine pointers only)
+  var hero=document.getElementById('hero'),plate=document.getElementById('plate');
+  if(!reduce&&matchMedia('(pointer:fine)').matches){
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      plate.style.setProperty('--ry',(x*10).toFixed(2)+'deg');plate.style.setProperty('--rx',(-y*8).toFixed(2)+'deg');
+    });
+    hero.addEventListener('pointerleave',function(){plate.style.setProperty('--ry','0deg');plate.style.setProperty('--rx','0deg')});
+  }
+
+  // fleet grid squares
+  var fleet=document.getElementById('fleet');
+  for(var i=0;i<30;i++)fleet.appendChild(document.createElement('i'));
+
+  // one-shot behaviours when things enter the viewport
+  var actions={
+    count:function(el){var n=+el.dataset.count;if(reduce)return;var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)},
+    queue:function(el){var rows=el.querySelectorAll('li:not(.bar)'),bar=el.querySelector('.bar i');rows.forEach(function(li,k){setTimeout(function(){li.classList.add('done');li.querySelector('b').textContent=k===0?'done':'updated';if(k>3)li.querySelector('b').textContent='passed';bar.style.setProperty('--p',((k+1)/rows.length*100)+'%')},reduce?0:350+k*420)})},
+    err:function(el){setTimeout(function(){el.classList.add('fixed')},reduce?0:1300)},
+    fleet:function(el){var sq=el.children,note=document.getElementById('fleet-note');for(var k=0;k<sq.length;k++)(function(k){setTimeout(function(){sq[k].classList.add('on');if(k===sq.length-1)note.textContent='Same change, every site. Log saved.'},reduce?0:k*70)})(k)},
+    term:function(el){var ln=el.querySelectorAll('.ln');ln.forEach(function(l,k){setTimeout(function(){l.classList.add('on')},reduce?0:300+k*520)})}
+  };
+  var targets=[].slice.call(document.querySelectorAll('.rv,[data-count]')).concat(['queue','err','fleet','term'].map(function(id){var el=document.getElementById(id);el.dataset.act=id;return el}));
+  document.querySelectorAll('[data-count]').forEach(function(el){el.dataset.act='count';if(!reduce)el.textContent='0'});
+  if(!('IntersectionObserver' in window)){targets.forEach(function(el){el.classList.add('in');if(el.dataset.act)actions[el.dataset.act](el)});}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;el.classList.add('in');if(el.dataset.act)actions[el.dataset.act](el);io.unobserve(el)})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(el){io.observe(el)});
+  }
+
+  // before / after slider
+  var ba=document.getElementById('ba'),range=document.getElementById('ba-range');
+  function setPos(v){ba.style.setProperty('--pos',v+'%')}
+  range.addEventListener('input',function(){setPos(range.value)});
+  setPos(range.value);
+
+  // email: assembled here so it never sits in the HTML
   var a=['predrag','bilbijatech.com'].join('@');
   var mail=document.getElementById('mail-btn');
-  mail.href='mailto:'+a+'?subject='+encodeURIComponent('Website help');
-  mail.removeAttribute('rel');
+  mail.href='mailto:'+a+'?subject='+encodeURIComponent('Website help');mail.removeAttribute('rel');
   var copy=document.getElementById('copy-btn');
-  if(!navigator.clipboard) return;
-  copy.hidden=false;
-  var label=copy.querySelector('span');
-  copy.addEventListener('click',function(){
-    navigator.clipboard.writeText(a).then(function(){
-      label.textContent='Copied';copy.setAttribute('data-done','');
-      setTimeout(function(){label.textContent='Copy email address';copy.removeAttribute('data-done')},2200);
-    },function(){label.textContent=a});
-  });
+  if(navigator.clipboard){
+    copy.hidden=false;var label=copy.querySelector('span');
+    copy.addEventListener('click',function(){navigator.clipboard.writeText(a).then(function(){label.textContent='Copied';copy.setAttribute('data-done','');setTimeout(function(){label.textContent='Copy email address';copy.removeAttribute('data-done')},2200)},function(){label.textContent=a})});
+  }
 })();
 </script>
-
 </body>
 </html>
