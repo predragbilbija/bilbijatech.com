@@ -84,7 +84,7 @@ p{text-wrap:pretty}
 .actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
 .plate{position:relative;aspect-ratio:5/4}
 .plate svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.plate .mark{position:absolute;left:12%;right:12%;top:50%;transform:translateY(-52%)}
+.plate .mark{position:absolute;left:12%;width:76%;top:50%;transform:translateY(-52%)}
 .cutline{stroke:var(--laser);stroke-width:1.5;fill:none;stroke-dasharray:1;stroke-dashoffset:0}
 .js .cutline{animation:cut 2.4s var(--ease) .2s both}
 @keyframes cut{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
@@ -156,10 +156,11 @@ footer a{color:#c9ced2}
 
 /* ---------- responsive ---------- */
 @media (max-width:980px){
-  .hero-grid,.head,.checks-grid,.founder-grid,.contact h2 em{font-style:normal;color:var(--laser-deep)}
-.contact .row{grid-template-columns:1fr}
+  .hero-grid,.head,.checks-grid,.founder-grid,.contact .row{grid-template-columns:1fr}
   .hero-grid{gap:32px}
-  .plate{max-width:560px}
+  .head{gap:20px;margin-bottom:40px}
+  .contact .row{gap:32px}
+  .plate{max-width:560px;width:100%;margin:0 auto}
   .job{grid-template-columns:1fr 1fr;gap:16px 32px}
   .job h3{grid-column:1/-1}
   .checks-grid h2{position:static}
